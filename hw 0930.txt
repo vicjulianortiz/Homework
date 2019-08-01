@@ -1,0 +1,87 @@
+C:/Users/Victor/Documents/abc.txt
+
+2.
+filename = input("Enter the name of the file: ")
+infile = open(filename , 'r')
+
+for num in [1, 2, 3, 4, 5]:
+    file_contents = infile.readline()
+    print(file_contents)
+    
+infile.close()
+
+3.
+filename = input("Enter the name of the file: ")
+infile = open(filename , 'r')
+
+counter = 1
+line = infile.readline()
+
+while line != '':
+    print(counter, ": ", line)
+    counter = counter + 1
+    line = infile.readline()
+    
+infile.close()
+
+4.
+filename = input("Enter the name of the file: ")
+infile = open(filename , 'r')
+
+counter = 0
+line = infile.readline()
+
+while line != '':
+    counter = counter + 1
+    line = infile.readline()
+    
+infile.close()
+print("The number of names in the counter is ", counter)
+
+5.
+infile = open('numbers.txt', 'r')
+
+line = infile.readline()
+sumOfNum = int(line)
+
+while line != '':
+    line = infile.readline()
+    if(line != ''):
+        sumOfNum = sumOfNum + int(line)
+    
+infile.close()
+print("The sum of all the numbers in the file is: ", sumOfNum)
+
+6.
+infile = open('numbers.txt', 'r')
+
+line = infile.readline()
+sumOfNum = int(line)
+counter = 1
+
+while line != '':
+    line = infile.readline()
+    if(line != ''):
+        sumOfNum = sumOfNum + int(line)
+        counter = counter + 1
+    
+infile.close()
+print("The average of all the numbers in the file is: ", sumOfNum/counter)
+
+7.
+import random
+
+counter = 0
+infile = open('myrandomfile.txt', 'w')
+numOfPrints = int(input("How many numbers do you wish to print to the file? "))
+
+while(counter < numOfPrints):
+    infile.write(str(random.randint(1,500)))
+    infile.write("\n")
+    counter = counter + 1
+
+infile.close()
+
+
+
+

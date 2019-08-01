@@ -1,0 +1,317 @@
+PROGRAMMING EXERCISES
+
+1.
+import tkinter
+import tkinter.messagebox
+
+class MyGUI:
+    def __init__(self):
+        self.main_window = tkinter.Tk()
+
+        self.bottom_frame = tkinter.Frame(self.main_window)
+        self.bottom_frame.pack()
+
+        self.ok_button = tkinter.Button(self.bottom_frame, text = 'OK',
+                                                 command = self.show_choice)
+        self.quit_button = tkinter.Button(self.bottom_frame, text = 'Quit',
+                                                  command = self.main_window.destroy)
+        
+        self.ok_button.pack(side = 'left')
+        self.quit_button.pack(side = 'left')
+
+        tkinter.mainloop()
+
+    def show_choice(self):
+        tkinter.messagebox.showinfo(title = None, message = 'Steven Marcus\n274 Bally Drive\nWaynesville, NC 27999')
+
+my_gui = MyGUI()
+
+2.
+import tkinter
+import tkinter.messagebox
+
+class MyGUI:
+    def __init__(self):
+        self.main_window = tkinter.Tk()
+
+        self.top_frame = tkinter.Frame(self.main_window)
+        self.top_frame.pack()
+
+        self.bottom_frame = tkinter.Frame(self.main_window)
+        self.bottom_frame.pack()
+
+        self.radio_var = tkinter.IntVar()
+        self.radio_var.set(1)
+
+        self.rb1 = tkinter.Radiobutton(self.top_frame, text = 'sinister',
+                                               variable = self.radio_var, value = 1)
+        self.rb2 = tkinter.Radiobutton(self.top_frame, text = 'dexter',
+                                               variable = self.radio_var, value = 2)
+        self.rb3 = tkinter.Radiobutton(self.top_frame, text = 'medium',
+                                                variable = self.radio_var, value = 3)
+        self.rb1.pack()
+        self.rb2.pack()
+        self.rb3.pack()
+
+        self.ok_button = tkinter.Button(self.bottom_frame, text = 'OK',
+                                                 command = self.show_choice)
+        self.quit_button = tkinter.Button(self.bottom_frame, text = 'Quit',
+                                                  command = self.main_window.destroy)
+        
+        self.ok_button.pack(side = 'left')
+        self.quit_button.pack(side = 'left')
+
+        tkinter.mainloop()
+
+    def show_choice(self):
+        if(self.radio_var.get() == 1):
+            tkinter.messagebox.showinfo('Translation', 'English Translation: Left')
+        if(self.radio_var.get() == 2):
+            tkinter.messagebox.showinfo('Translation', 'English Translation: Right')
+        if(self.radio_var.get() == 3):
+            tkinter.messagebox.showinfo('Translation', 'English Translation: Center')
+
+my_gui = MyGUI()
+
+3.
+import tkinter
+
+class MyGUI:
+    def __init__(self):
+        self.main_window = tkinter.Tk()
+
+        self.miles_frame = tkinter.Frame(self.main_window)
+        self.gallons_frame = tkinter.Frame(self.main_window)
+        self.result_frame = tkinter.Frame(self.main_window)
+        self.button_frame = tkinter.Frame(self.main_window)
+
+        self.miles_label = tkinter.Label(self.miles_frame,text='Enter the max number of miles that can be driven on a full tank:')
+        self.miles_entry = tkinter.Entry(self.miles_frame,width=10)
+        self.miles_label.pack(side='left')
+        self.miles_entry.pack(side='left')
+
+        self.gallons_label = tkinter.Label(self.gallons_frame,text='Enter the max number of gallons that your car can hold:')
+        self.gallons_entry = tkinter.Entry(self.gallons_frame,width=10)
+        self.gallons_label.pack(side='left')
+        self.gallons_entry.pack(side='left')
+
+        self.result_label = tkinter.Label(self.result_frame,text='MPG:')
+        self.mpg = tkinter.StringVar()
+        self.mpg_label = tkinter.Label(self.result_frame,textvariable=self.mpg)
+        self.result_label.pack(side='left')
+        self.mpg_label.pack(side='left')
+
+        self.calc_button = tkinter.Button(self.button_frame, text='Calculate', command=self.calc_mpg)
+        self.quit_button = tkinter.Button(self.button_frame, text='Quit', command=self.main_window.destroy)
+        self.calc_button.pack(side='left')
+        self.quit_button.pack(side='left')
+
+        self.miles_frame.pack()
+        self.gallons_frame.pack()
+        self.result_frame.pack()
+        self.button_frame.pack()
+
+        tkinter.mainloop()
+
+    def calc_mpg(self):
+        self.gallons = float(self.gallons_entry.get())
+        self.miles = float(self.miles_entry.get())
+        
+        self.miles_per_gallon = (self.miles / self.gallons)
+
+        self.mpg.set(self.miles_per_gallon)
+        
+car1_mpg = MyGUI()
+
+4.
+import tkinter
+
+class MyGUI:
+    def __init__(self):
+        self.main_window = tkinter.Tk()
+
+        self.ctemp_frame = tkinter.Frame(self.main_window)
+        self.result_frame = tkinter.Frame(self.main_window)
+        self.button_frame = tkinter.Frame(self.main_window)
+
+        self.ctemp_label = tkinter.Label(self.ctemp_frame,text='Enter the temperature in Celsius:')
+        self.ctemp_entry = tkinter.Entry(self.ctemp_frame,width=10)
+        self.ctemp_label.pack(side='left')
+        self.ctemp_entry.pack(side='left')
+
+        self.result_label = tkinter.Label(self.result_frame,text='Temperature in fahrenheit:')
+        self.ftemp = tkinter.StringVar()
+        self.ftemp_label = tkinter.Label(self.result_frame,textvariable=self.ftemp)
+        self.result_label.pack(side='left')
+        self.ftemp_label.pack(side='left')
+
+        self.calc_button = tkinter.Button(self.button_frame, text='Calculate', command=self.calc_ftemp)
+        self.quit_button = tkinter.Button(self.button_frame, text='Quit', command=self.main_window.destroy)
+        self.calc_button.pack(side='left')
+        self.quit_button.pack(side='left')
+
+        self.ctemp_frame.pack()
+        self.result_frame.pack()
+        self.button_frame.pack()
+
+        tkinter.mainloop()
+
+    def calc_ftemp(self):
+        self.celsius = float(self.ctemp_entry.get())
+        
+        self.fahrenheit = (9/5) * self.celsius + 32
+
+        self.ftemp.set(self.fahrenheit)
+        
+temp1 = MyGUI()
+
+5.
+import tkinter
+
+class MyGUI:
+    def __init__(self):
+        self.main_window = tkinter.Tk()
+
+        self.property_frame = tkinter.Frame(self.main_window)
+        self.assesment_frame = tkinter.Frame(self.main_window)
+        self.tax_frame = tkinter.Frame(self.main_window)
+        self.button_frame = tkinter.Frame(self.main_window)
+
+        self.property_label = tkinter.Label(self.property_frame,text='Enter the property`s value: $')
+        self.property_entry = tkinter.Entry(self.property_frame,width=10)
+        self.property_label.pack(side='left')
+        self.property_entry.pack(side='left')
+
+        self.assesment_label = tkinter.Label(self.assesment_frame,text='Assesment value: $')
+        self.assesment = tkinter.StringVar()
+        self.assesment_result_label = tkinter.Label(self.assesment_frame,textvariable=self.assesment)
+        self.assesment_label.pack(side='left')
+        self.assesment_result_label.pack(side='left')
+
+        self.tax_label = tkinter.Label(self.tax_frame,text='Tax value: $')
+        self.tax = tkinter.StringVar()
+        self.tax_result_label = tkinter.Label(self.tax_frame,textvariable=self.tax)
+        self.tax_label.pack(side='left')
+        self.tax_result_label.pack(side='left')
+
+        self.calc_button = tkinter.Button(self.button_frame, text='Calculate', command=self.calc_value)
+        self.quit_button = tkinter.Button(self.button_frame, text='Quit', command=self.main_window.destroy)
+        self.calc_button.pack(side='left')
+        self.quit_button.pack(side='left')
+
+        self.property_frame.pack()
+        self.assesment_frame.pack()
+        self.tax_frame.pack()
+        self.button_frame.pack()
+
+        tkinter.mainloop()
+
+    def calc_value(self):
+        self.property_value = float(self.property_entry.get())
+        
+        self.assesment_value = self.property_value * 0.60
+        self.tax_value = (self.assesment_value / 100) * 0.75
+
+        self.assesment.set(self.assesment_value)
+        self.tax.set(self.tax_value)
+        
+house_value1 = MyGUI()
+
+6.
+import tkinter
+
+class MyGUI:
+    def __init__(self):
+        self.main_window = tkinter.Tk()
+
+        self.top_frame = tkinter.Frame(self.main_window)
+        self.result_frame = tkinter.Frame(self.main_window)
+        self.bottom_frame = tkinter.Frame(self.main_window)
+        
+        
+        self.cb_var1 = tkinter.IntVar()
+        self.cb_var2 = tkinter.IntVar()
+        self.cb_var3 = tkinter.IntVar()
+        self.cb_var4 = tkinter.IntVar()
+        self.cb_var5 = tkinter.IntVar()
+        self.cb_var6 = tkinter.IntVar()
+        self.cb_var7 = tkinter.IntVar()
+        
+        self.cb_var1.set(0)
+        self.cb_var2.set(0)
+        self.cb_var3.set(0)
+        self.cb_var4.set(0)
+        self.cb_var5.set(0)
+        self.cb_var6.set(0)
+        self.cb_var7.set(0)
+        
+        self.cb1 = tkinter.Checkbutton(self.top_frame,
+                                       text='Oil change-$30.00',
+                                       variable=self.cb_var1)
+        self.cb2 = tkinter.Checkbutton(self.top_frame,
+                                       text='Lube job-$20.00',
+                                       variable=self.cb_var2)
+        self.cb3 = tkinter.Checkbutton(self.top_frame,
+                                       text='Radiator flush-$40.00',
+                                       variable=self.cb_var3)
+        self.cb4 = tkinter.Checkbutton(self.top_frame,
+                                       text='Transmission flush-$100.00',
+                                       variable=self.cb_var4)
+        self.cb5 = tkinter.Checkbutton(self.top_frame,
+                                       text='Inspection-$35.00',
+                                       variable=self.cb_var5)
+        self.cb6 = tkinter.Checkbutton(self.top_frame,
+                                       text='Muffler replacement-$200.00',
+                                       variable=self.cb_var6)
+        self.cb7 = tkinter.Checkbutton(self.top_frame,
+                                       text='Tire rotation-$20.00',
+                                       variable=self.cb_var7)
+        self.ok_button = tkinter.Button(self.bottom_frame,
+                                        text='OK',
+                                        command=self.calc_total)
+        self.quit_button = tkinter.Button(self.bottom_frame,
+                                          text='Quit',
+                                          command=self.main_window.destroy)
+
+        self.result_label = tkinter.Label(self.result_frame,text='Total cost: $')
+        self.total = tkinter.StringVar()
+        self.result_amount_label = tkinter.Label(self.result_frame,textvariable=self.total)
+        self.result_label.pack(side='left')
+        self.result_amount_label.pack(side='left')
+
+        self.cb1.pack()
+        self.cb2.pack()
+        self.cb3.pack()
+        self.cb4.pack()
+        self.cb5.pack()
+        self.cb6.pack()
+        self.cb7.pack()
+        self.ok_button.pack(side='left')
+        self.quit_button.pack(side='left')
+        self.top_frame.pack()
+        self.result_frame.pack()
+        self.bottom_frame.pack()
+
+        tkinter.mainloop()
+        
+    def calc_total(self):
+        self.total_cost = 0
+        
+        if self.cb_var1.get() == 1:
+            self.total_cost += 30.00
+        if self.cb_var2.get() == 1:
+            self.total_cost += 20.00
+        if self.cb_var3.get() == 1:
+            self.total_cost += 40.00
+        if self.cb_var4.get() == 1:
+            self.total_cost += 100.00
+        if self.cb_var5.get() == 1:
+            self.total_cost += 35.00
+        if self.cb_var6.get() == 1:
+            self.total_cost += 200.00
+        if self.cb_var7.get() == 1:
+            self.total_cost += 20.00
+
+        self.total.set(self.total_cost)
+
+my_gui = MyGUI()

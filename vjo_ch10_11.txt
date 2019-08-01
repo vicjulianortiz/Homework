@@ -1,0 +1,426 @@
+ASSIGNMENT 10
+
+SHORT ANSWER
+1. Encapsulation is the act of combining data and code into a single object.
+2. You should make data attributes private in order to make debugging easier and to enforce proper encapsulation of your objects and classes. 
+3. A class is code that specifies data attributes and methods of a particular type of object. An instance of a class is created and defined by those data attributes and methods. 
+4. The method name get_dollar is reference by the object wallet. 
+5. The self parameter references the specific object that the method is working on. 
+6. To hide the data attribute from other classes, you place two underscores in fron to the attribute name. 
+7. You call the __str__ method by passing it as an argument to the print or str function. 
+
+2.
+class Book:
+    
+    def __init__(self, title, a_nm, p_nm):
+        self.__book_title = title
+        self.__author_name = a_nm
+        self.__publisher_name = p_nm
+
+    def set_book_title(self, title):
+        self.__book_title = title
+
+    def set_author_name(self, a_nm):
+        self.__author_name = a_nm
+
+    def set_publisher_name(self, p_nm):
+        self.__publisher_name = p_nm
+    
+    def get_book_title(self):
+        return self.__book_title
+
+    def get_author_name(self):
+        return self.__author_name
+
+    def get_publisher_name(self):
+        return self.__publisher_name
+
+    def __str__(self):
+        return "Book title: " + str(self.__book_title) + " Author name: " + str(self.__author_name) + " Publisher name: " + str(self.__publisher_name)
+        
+PROGRAMMING EXERCISES
+1.
+pet.py
+
+class Pet:
+    
+    def __init__(self, nm, animal, age):
+        self.__name = nm
+        self.__animal_type = animal
+        self.__age = age
+
+    def set_name(self, nm):
+        self.__name = nm
+
+    def set_animal_type(self, animal):
+        self.__animal_type = animal
+
+    def set_age(self, age):
+        self.__age = age
+
+    def get_name(self):
+        return self.__name
+
+    def get_animal_type(self):
+        return self.__animal_type
+
+    def get_age(self):
+        return self.__age
+
+The below demonstrates the pet class.
+
+import pet
+
+def main():
+
+    pet_name = input("Enter the name of your pet: ")
+    pet_type = input("What kind of animal is your pet? ")
+    pet_age = input("Enter the age of your pet: ")
+
+    pet_info = pet.Pet(pet_name, pet_type, pet_age)
+
+    print("Your pet " + str(pet_info.get_name()) + (", is a ") + str(pet_info.get_animal_type()) + " of age " + str(pet_info.get_age()) + ".")
+
+main() 
+
+2.
+car.py
+
+class Car:
+    
+    def __init__(self, yrmodel, make):
+        self.__year_model = yrmodel
+        self.__make = make
+        self.__speed = 0
+
+    def accelerate(self):
+        self.__speed += 5
+
+    def brake(self):
+        self.__speed -= 5
+    
+    def get_speed(self):
+        return self.__speed
+
+The below demonstrates the Car class.
+
+import car
+
+def main():
+
+    car_type = input("Enter the year and model of your car: ")
+    car_make = input("Enter the make of your car: ")
+
+    car_info = car.Car(car_type, car_make)
+
+    for x in range(5):
+        car_info.accelerate()
+        print("The speed of the car is now " + str(car_info.get_speed()) + " mph.")
+
+    for x in range(5):
+        car_info.brake()
+        print("The speed of the car is now " + str(car_info.get_speed()) + " mph.")
+        
+main()    
+
+3. 
+information.py
+
+class Information:
+    
+    def __init__(self, nm, add, age, num):
+        self.__name = nm
+        self.__address = add
+        self.__age = age
+        self.__phone_number = num
+
+    def set_name(self, nm):
+        self.__name = nm
+
+    def set_address(self, add):
+        self.__address = add
+
+    def set_age(self, age):
+        self.__age = age
+
+    def set_phone_number(self, num):
+        self.__phone_number = num
+
+    def get_name(self):
+        return self.__name
+
+    def get_address(self):
+        return self.__address
+
+    def get_age(self):
+        return self.__age
+
+    def get_phone_number(self):
+        return self.__phone_number
+
+The below demonstrates the Information class.
+
+import information
+
+def main():
+
+    user_name = input(("Enter your name: "))
+    user_address = input(("Enter your address: "))
+    user_age = input(("Enter your age: "))
+    user_number = input(("Enter your phone number: "))
+
+    user_info = information.Information(user_name, user_address, user_age, user_number)
+    
+    friend1_name = input(("Enter your friend's name: "))
+    friend1_address = input(("Enter your friend's address: "))
+    friend1_age = input(("Enter your friend's age: "))
+    friend1_number = input(("Enter your friend's phone number: "))
+
+    friend1 = information.Information(friend1_name, friend1_address, friend1_age, friend1_number)
+
+    friend2_name = input(("Enter your friend's name: "))
+    friend2_address = input(("Enter your friend's address: "))
+    friend2_age = input(("Enter your friend's age: "))
+    friend2_number = input(("Enter your friend's phone number: "))
+
+    friend2_info = information.Information(friend2_name, friend2_address, friend2_age, friend2_number)
+    
+main()   
+
+4.
+employee.py
+
+class Employee:
+    
+    def __init__(self, nm, id_num, dept, title):
+        self.__name = nm
+        self.__ID_number = id_num
+        self.__department = dept
+        self.__job_title = title
+
+    def set_name(self, nm):
+        self.__name = nm
+
+    def set_ID_number(self, id_num):
+        self.__ID_number = id_num
+
+    def set_department(self, dept):
+        self.__department = dept
+
+    def set_job_title(self, title):
+        self.__job_title = title
+    
+    def get_name(self):
+        return self.__name
+
+    def get_ID_number(self):
+        return self.__ID_number
+
+    def get_department(self):
+        return self.__department
+
+    def get_job_title(self):
+        return self.__job_title
+
+The below demonstrates the Employee class.
+
+import employee
+
+def main():
+
+    emp1 = employee.Employee("Susan Meyers", "47899", "Accounting", "Vice President")
+    emp2 = employee.Employee("Mark Jones", "39119", "IT", "Programmer")
+    emp3 = employee.Employee("Joy Rogers", "81774", "Manufacturing", "Engineer")
+
+    print("Name: " + str(emp1.get_name()) + " ID: " + str(emp1.get_ID_number()) + " Department: " + str(emp1.get_department()) + " Job title: " + str(emp1.get_job_title()))
+    print("Name: " + str(emp2.get_name()) + " ID: " + str(emp2.get_ID_number()) + " Department: " + str(emp2.get_department()) + " Job title: " + str(emp2.get_job_title()))
+    print("Name: " + str(emp3.get_name()) + " ID: " + str(emp3.get_ID_number()) + " Department: " + str(emp3.get_department()) + " Job title: " + str(emp3.get_job_title()))
+
+main()    
+
+CHAPTER 11 ASSIGNMENT
+
+2.	I'm a plant.
+	I'm a tree. 
+
+3. 
+class Cola(Beverage):
+	def __init__(self):
+		Beverage.__init__(self, 'cola')
+	
+
+PROGRAMMING EXERCISES
+1.
+employee.py
+
+class Employee:
+    
+    def __init__(self, nm, id_num):
+        self.__name = nm
+        self.__ID_number = id_num
+
+    def set_name(self, nm):
+        self.__name = nm
+
+    def set_ID_number(self, id_num):
+        self.__ID_number = id_num
+    
+    def get_name(self):
+        return self.__name
+
+    def get_ID_number(self):
+        return self.__ID_number
+
+class ProductionWorker(Employee):
+
+    def __init__(self, nm, id_num, shift, rate):
+        Employee.__init__(self, nm, id_num)
+        self.__shift_number = shift
+        self.__pay_rate = rate
+
+    def set_shift_number(self, shift):
+        self.__shift_number = shift
+
+    def set_pay_rate(self, rate):
+        self.__pay_rate = rate
+
+    def get_shift_number(self):
+        return self.__shift_number
+
+    def get_pay_rate(self):
+        return self.__pay_rate
+
+The below demonstrates the Employee and ProductionWorker class. 
+
+import employee
+
+def main():
+
+    emp_name = input("Please enter your name: ")
+    emp_id_number = input("Please enter your employee number: ")
+    emp_shift_number = input("Please enter your shift number (1-morning, 2-afternoon, 3-night): ")
+    emp_pay_rate = input("Please enter your hourly pay rate: ")
+
+    emp_info = employee.ProductionWorker(emp_name, emp_id_number, emp_shift_number, emp_pay_rate)
+
+    print("Employee name: " + str(emp_info.get_name()) + "\nEmployee number: " + str(emp_info.get_ID_number()) + "\nShift number: " + str(emp_info.get_shift_number()) + "\nPay rate: " + str(emp_info.get_pay_rate()))
+
+main()    
+
+2.
+employee.py
+
+class Employee:
+    
+    def __init__(self, nm, id_num):
+        self.__name = nm
+        self.__ID_number = id_num
+
+    def set_name(self, nm):
+        self.__name = nm
+
+    def set_ID_number(self, id_num):
+        self.__ID_number = id_num
+    
+    def get_name(self):
+        return self.__name
+
+    def get_ID_number(self):
+        return self.__ID_number
+
+class ShiftSupervisor(Employee):
+
+    def __init__(self, nm, id_num, salary, bonus):
+        Employee.__init__(self, nm, id_num)
+        self.__yearly_salary = salary
+        self.__yearly_bonus = bonus
+
+    def set_yearly_salary(self, salary):
+        self.__yearly_salary = salary
+
+    def set_yearly_bonus(self, bonus):
+        self.__yearly_bonus = bonus
+
+    def get_yearly_salary(self):
+        return self.__yearly_salary
+
+    def get_yearly_bonus(self):
+        return self.__yearly_bonus
+
+The below demonstrates the employee and shiftsupervisor class. 
+
+import employee
+
+def main():
+
+    emp_info = employee.ShiftSupervisor("Victor Ortiz", "12345", "100,000", "5,000")
+
+    print("Employee name: " + str(emp_info.get_name()) + "\nEmployee number: " + str(emp_info.get_ID_number()) + "\nSalary: " + str(emp_info.get_yearly_salary()) + "\nBonus: " + str(emp_info.get_yearly_bonus()))
+
+main()    
+
+
+3.
+person.py
+
+class Person:
+    
+    def __init__(self, nm, add, num):
+        self.__name = nm
+        self.__address = add
+        self.__phone_number = num
+
+    def set_name(self, nm):
+        self.__name = nm
+
+    def set_address(self, add):
+        self.__address = add
+
+    def set_phone_number(self, num):
+        self.__phone_number = num
+
+    def get_name(self):
+        return self.__name
+
+    def get_address(self):
+        return self.__address
+
+    def get_phone_number(self):
+        return self.__phone_number
+
+class Customer(Person):
+
+    def __init__(self, nm, add, num, num2, mail):
+        Person.__init__(self, nm, add, num)
+        self.__customer_number = num2
+        self.__mailing_list = mail
+
+    def set_customer_number(self, num2):
+        self.__customer_number = num2
+
+    def set_mailing_list(self, mail):
+        self.__mailing_list = mail
+
+    def get_customer_number(self):
+        return self.__customer_number
+
+    def get_mailing_list(self):
+        return self.__mailing_list
+
+The below demonstrates the Customer and Person Class.
+
+import person
+
+def main():
+
+    customer_info = person.Customer("Victor Ortiz", "123 Apple Drive", "281-123-456", "123", "true")
+
+    print("Customer name: " + str(customer_info.get_name()))
+    print("Address: " + str(customer_info.get_address()))
+    print("Phone number: " + str(customer_info.get_phone_number()))
+    print("Customer number: " + str(customer_info.get_customer_number()))
+    print("Signed up for mailing list? " + str(customer_info.get_mailing_list()))
+
+main()    
+
+

@@ -1,0 +1,53 @@
+import tkinter
+from tkinter import *
+import random
+
+class MyGUI:
+    def __init__(self):
+        self.main_window = tkinter.Tk()
+
+        self.image_frame = tkinter.Frame(self.main_window)
+        self.result_frame = tkinter.Frame(self.main_window)
+        self.button_frame = tkinter.Frame(self.main_window)
+
+        self.die1 = PhotoImage(file = "C:/Users/Victor/Desktop/DICE/1.gif")
+        self.die2 = PhotoImage(file = "C:/Users/Victor/Desktop/DICE/1.gif")
+        
+        self.image_label = tkinter.Label(self.image_frame, image = self.die1, borderwidth = 2)
+        self.image2_label = tkinter.Label(self.image_frame, image = self.die2, borderwidth = 2)
+        self.image_label.pack(side='left')
+        self.image2_label.pack(side = 'left')
+
+        self.result_label = tkinter.Label(self.result_frame,text='Total:')
+        self.total = tkinter.StringVar()
+        self.total_label = tkinter.Label(self.result_frame,textvariable=self.total)
+        self.result_label.pack(side='left')
+        self.total_label.pack(side='left')
+
+        self.roll_button = tkinter.Button(self.button_frame, text='ROLL', command=self.shuffle)
+        self.new_game_button = tkinter.Button(self.button_frame, text='NEW GAME', command=self.main_window.destroy)
+        self.roll_button.pack(side='left')
+        self.new_game_button.pack(side='left')
+
+        self.image_frame.pack()
+        self.result_frame.pack()
+        self.button_frame.pack()
+
+        tkinter.mainloop()
+
+    def shuffle(self):
+        self.counter = 1
+        self.num1 = random.randint(1,6)
+        self.num2 = random.randint(1,6)
+        self.sum_of_rand = self.num1 + self.num2
+
+        self.rand_die1 = PhotoImage(file = "C:/Users/Victor/Desktop/DICE/" + str(self.num1) + ".gif")
+        self.rand_die2 = PhotoImage(file = "C:/Users/Victor/Desktop/DICE/" + str(self.num2) + ".gif")
+
+        self.image_label["image"] = self.rand_die1
+        self.image2_label["image"] = self.rand_die2
+        self.total.set(self.sum_of_rand)
+
+keep_game = True
+while(keep_game):
+    MyGUI()
