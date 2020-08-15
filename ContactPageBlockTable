@@ -1,0 +1,38 @@
+<apex:page controller="ManageContactPageBlockTable">
+    <apex:form >
+    	<apex:pageBlock >
+                <apex:pageBlockTable title="Contacts" value="{!contacts}" var="c">           
+                    <apex:column width="180">
+                    	<apex:commandButton action="{$ !setCustomize}" value="Edit" id="editButton" />
+                        <apex:commandButton action="{$!delete}" value="Delete" id="deleteButton"/>
+                        <apex:commandButton action="{$!cancel}" value="Cancel" id="cancelButton" />
+                        <apex:commandButton action="{$!save}" value="Save" id="saveButton"/>
+                    </apex:column>
+                    <apex:column >
+                        <apex:outputField value="{!c.firstName}">
+                    	<apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        	hideOnEdit="editButton, deleteButton" disabled="{$!m1.get(c)}"/>
+                        </apex:outputField>    
+                    </apex:column>
+                    <apex:column >
+                        <apex:outputField value="{!c.lastName}">
+                    	<apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        	hideOnEdit="editButton, deleteButton" event="ondblclick"/>
+                        </apex:outputField>    
+                    </apex:column> 
+                    <apex:column >
+                        <apex:outputField value="{!c.email}">
+                    	<apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        	hideOnEdit="editButton, deleteButton" event="ondblclick"/>
+                        </apex:outputField>    
+                    </apex:column> 
+                    <apex:column >
+                        <apex:outputField value="{!c.phone}">
+                    	<apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        	hideOnEdit="editButton, deleteButton" event="ondblclick"/>
+                        </apex:outputField>    
+                    </apex:column> 
+                </apex:pageBlockTable>
+    	</apex:pageBlock>
+    </apex:form>    
+</apex:page>
