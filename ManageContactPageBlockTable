@@ -1,0 +1,22 @@
+public class ManageContactPageBlockTable {
+    Map<Contact, Boolean> m1 = new Map<Contact, Boolean>();
+    List<Contact> contacts = new List<Contact>(); 
+    
+    public ManageContactPageBlockTable(){
+    	contacts = [SELECT ID, firstName, lastName, email, phone FROM CONTACT];
+        
+        for(Contact c : contacts){
+			m1.put(c, false);
+            System.debug(c);  
+            System.debug(m1.get(c));
+        }     
+    }
+   
+    public List<Contact> getContacts(){      
+       	return contacts;
+    }
+
+    public boolean getCustomize(Contact c){		
+		return m1.get(c);
+    }
+}
